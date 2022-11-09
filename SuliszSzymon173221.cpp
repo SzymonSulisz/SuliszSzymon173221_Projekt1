@@ -36,6 +36,46 @@ int losowanie_liczb(int Z[])
     cout << endl;
     return Z[n];
 }
+void sortowanie_malejaco(int M[], int n)
+{
+    for( int j = 0 ; j < n ; j++)
+    {
+        for( int k = 1 ; k < n ; k++)
+        {
+            if( M[k-1] < M[k] )
+            {
+                swap( M[k-1], M[k]);
+            }
+        }
+    }
+    int i = 0;
+    cout << "Tablica posortowana malejaco wyglada nastepujaco: " << endl;
+    while( i < n )
+    {
+        cout << M[i] << " ";
+        i++;
+    }
+}
+void sortowanie_rosnaco(int R[], int n)
+{
+    for( int j = 0 ; j < n ; j++)
+    {
+        for( int k = 1 ; k < n ; k++)
+        {
+            if( R[k-1] > R[k] )
+            {
+                swap( R[k-1], R[k]);
+            }
+        }
+    }
+    int i = 0;
+    cout << "Tablica posortowana rosnaco wyglada nastepujaco: " << endl;
+    while( i < n )
+    {
+        cout << R[i] << " ";
+        i++;
+    }
+}
 int main()
 {
     rozmiar_tablicy();
@@ -50,5 +90,8 @@ int main()
     cout << "Rozmiar twojej tablicy wynosi " << n << " dolny zakres wynosi " << dol << " a gorny " << gora << endl;
     int Z[n];
     losowanie_liczb(Z);
+    sortowanie_malejaco(Z, n);
+    cout << endl;
+    sortowanie_rosnaco(Z, n);
     return 0;
 }
