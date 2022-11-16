@@ -74,41 +74,20 @@ int losowanie_liczb(int Z[]) // funkcja losujaca dane do tabeli
     cout << endl;
     return Z[n];
 }
-int sortowanie_malejaco(int M[]) // funkcja zawierajaca algorytm sortowania bombelkowego majaca na celu posortowac dane malejaco z tablicy
+int sortowanie(int R[]) // funkcja zawierajaca algorytm sortowania majacy na celu posortowac dane wzgledem ich wystepowania w tablicy
 {
     for( int j = 0 ; j < n ; j++)
     {
-        for( int k = 1 ; k < n ; k++)
+        for( int k = n-1 ; k > j ; k--)
         {
-            if( M[k-1] < M[k] )
+            if( R[k] == R[j] )
             {
-                swap( M[k-1], M[k]);
+                swap( R[k], R[k-1]);
             }
         }
     }
     int i = 0;
-    cout << "Tablica posortowana malejaco wyglada nastepujaco: " << endl;
-    while( i < n )
-    {
-        cout << M[i] << " ";
-        i++;
-    }
-    return M[n];
-}
-int sortowanie_rosnaco(int R[]) // funkcja zawierajaca algorytm sortowania bombelkowego majaca na celu posortowac dane rosnaco z tablicy
-{
-    for( int j = 0 ; j < n ; j++)
-    {
-        for( int k = 1 ; k < n ; k++)
-        {
-            if( R[k-1] > R[k] )
-            {
-                swap( R[k-1], R[k]);
-            }
-        }
-    }
-    int i = 0;
-    cout << "Tablica posortowana rosnaco wyglada nastepujaco: " << endl;
+    cout << "Tablica posortowana wyglada nastepujaco: " << endl;10
     while( i < n )
     {
         cout << R[i] << " ";
@@ -127,10 +106,7 @@ int main()
     int Z[n]; // deklaracja tablicy o rozmiarze n podanym za pomoca funkcji rozmiar_tablicy()
     losowanie_liczb(Z);
     zapis(Z);
-    sortowanie_malejaco(Z);
-    zapis(Z);
-    cout << endl;
-    sortowanie_rosnaco(Z);
+    sortowanie(Z);
     zapis(Z);
     clock_t end = clock(); //zmienna pobierajaca czas zakonczenia dzialania programu
     double x = end - start;
