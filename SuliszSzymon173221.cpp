@@ -87,7 +87,7 @@ int sortowanie(int R[]) // funkcja zawierajaca algorytm sortowania majacy na cel
         }
     }
     int i = 0;
-    cout << "Tablica posortowana wyglada nastepujaco: " << endl;10
+    cout << "Tablica posortowana wyglada nastepujaco: " << endl;
     while( i < n )
     {
         cout << R[i] << " ";
